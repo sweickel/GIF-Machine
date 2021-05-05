@@ -37,11 +37,9 @@
                console.log('No GIFS found');
                alert('No GIFs Found');
             })
-        };            
-        btn.addEventListener('click', function(){
-            nextImg(cur);    
-        });
-        search.addEventListener('click', function(){
+        };
+        
+        searchGo = function() {
             let searchTerms = inp.value;
             if (searchTerms === "") {
                 console.log('No Input');
@@ -51,7 +49,20 @@
                     cur = searchTerms.replace(' ', '&');
                 }
             nextImg(cur);
-            
+        }
+
+        btn.addEventListener('click', function(){
+            nextImg(cur);    
+        });
+
+        window.addEventListener("keydown", function(){
+            if (event.isComposing || event.keyCode === 13) {
+                searchGo();
+            }            
+        });
+
+        search.addEventListener('click', function(){
+            searchGo();
         });
         nextImg("dancing");
     </script>
