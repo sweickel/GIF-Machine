@@ -1,0 +1,30 @@
+body {
+    background-color: lightblue;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 800;
+}
+
+img {
+    border: 2px solid black;
+    margin: 30px;
+    padding: 5px;
+}
+
+#next {
+    margin-left: 30px;
+}
+
+#search_bar  {
+    display: flex;
+    margin: 30px;
+}
+
