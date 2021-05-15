@@ -23,21 +23,23 @@
         let inp = document.querySelector("#text");
         let cur = "dancing";
         
-        nextImg = function (term) {
+
+
+
+        async function nextImg(term) {
             let url = 'https://api.giphy.com/v1/gifs/translate?api_key=ZmM5B0JzSh01F1nTMX1SnDFlMgtuCIkY&s=';
             let newUrl = url.concat('', term);
-            fetch(newUrl, {mode: 'cors'})
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(response) {
-                img.src = response.data.images.original.url;
-            })
-            .catch(function(response) {
-               console.log('No GIFS found');
-               alert('No GIFs Found');
-            })
+
+            try {
+                const response = await fetch(newUrl, {mode: 'cors'});
+                const searchData = await response.json();
+                img.src = searchData.data.images.original.url;
+            }   catch (error) {
+                console.log('No GIFS found');
+                alert('No GIFs Found');
+            }
         };
+        
         
         searchGo = function() {
             let searchTerms = inp.value;
