@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src='config.js'></script>
     <title>Document</title>
 </head>
 <body>
@@ -27,7 +28,9 @@
 
 
         async function nextImg(term) {
-            let url = 'https://api.giphy.com/v1/gifs/translate?api_key=ZmM5B0JzSh01F1nTMX1SnDFlMgtuCIkY&s=';
+            const key = config.API_KEY;
+            let url = 'https://api.giphy.com/v1/gifs/translate?api_key=!&s=';
+            url = url.replace('!', key);
             let newUrl = url.concat('', term);
 
             try {
